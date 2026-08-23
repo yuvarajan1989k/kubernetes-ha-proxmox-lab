@@ -6,26 +6,7 @@ Build a highly available Kubernetes lab on Proxmox with three control-plane node
 
 ## Topology
 
-```text
-                         Kubernetes API
-                         10.10.1.224:6443
-                                |
-                         learn-k8s-lb
-                            HAProxy
-                                |
-              +-----------------+-----------------+
-              |                 |                 |
-       learn-k8s-cp       learn-k8s-cp1     learn-k8s-cp2
-       10.10.1.218        10.10.1.222       10.10.1.223
-       Control Plane      Control Plane      Control Plane
-              |
-       Kubernetes Cluster
-              |
-       +------+------+ 
-       |      |      |
-learn-k8s-w1 learn-k8s-w2 learn-k8s-w3
-10.10.1.219  10.10.1.220  10.10.1.221
-```
+![Topology](../images/topology.svg)
 
 ## Node Inventory
 
