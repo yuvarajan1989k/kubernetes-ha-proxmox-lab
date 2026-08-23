@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="'SF Mono', 'JetBrains Mono', 'Consolas', monospace">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8f9fa"/>
+      <stop offset="100%" stop-color="#e9ecef"/>
+    </linearGradient>
+    <linearGradient id="lb-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4263f5"/>
+      <stop offset="100%" stop-color="#3b5bdb"/>
+    </linearGradient>
+    <linearGradient id="cp-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#845ef7"/>
+      <stop offset="100%" stop-color="#7048e8"/>
+    </linearGradient>
+    <linearGradient id="wrk-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#20c997"/>
+      <stop offset="100%" stop-color="#0ca678"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#868e96"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="520" rx="12" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="400" y="38" text-anchor="middle" font-size="16" font-weight="bold" fill="#212529">Kubernetes HA Cluster — Proxmox Lab</text>
+  <line x1="180" y1="48" x2="620" y2="48" stroke="#dee2e6" stroke-width="1"/>
+
+  <!-- Section: Internet / External -->
+  <rect x="340" y="62" width="120" height="28" rx="14" fill="#ff922b" filter="url(#shadow)"/>
+  <text x="400" y="81" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">🌐 10.10.1.0/24</text>
+
+  <!-- Arrow: network → LB -->
+  <line x1="400" y1="90" x2="400" y2="112" stroke="#adb5bd" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- HAProxy Load Balancer -->
+  <rect x="240" y="116" width="320" height="48" rx="8" fill="url(#lb-grad)" filter="url(#shadow)"/>
+  <text x="400" y="136" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">learn-k8s-lb · HAProxy</text>
+  <text x="400" y="154" text-anchor="middle" font-size="10" fill="#d0ebff">10.10.1.224:6443 · Round Robin API LB</text>
+
+  <!-- Arrows: LB → Control Planes -->
+  <line x1="400" y1="164" x2="400" y2="190" stroke="#adb5bd" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="360" y1="164" x2="160" y2="190" stroke="#adb5bd" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="440" y1="164" x2="640" y2="190" stroke="#adb5bd" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Section: Control Plane -->
+  <text x="400" y="208" text-anchor="middle" font-size="11" font-weight="bold" fill="#495057">CONTROL PLANE</text>
+
+  <!-- Control Plane Nodes -->
+  <rect x="50" y="218" width="200" height="52" rx="8" fill="url(#cp-grad)" filter="url(#shadow)"/>
+  <text x="150" y="242" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">learn-k8s-cp</text>
+  <text x="150" y="258" text-anchor="middle" font-size="10" fill="#e5dbff">10.10.1.218 · kube-apiserver</text>
+
+  <rect x="300" y="218" width="200" height="52" rx="8" fill="url(#cp-grad)" filter="url(#shadow)"/>
+  <text x="400" y="242" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">learn-k8s-cp1</text>
+  <text x="400" y="258" text-anchor="middle" font-size="10" fill="#e5dbff">10.10.1.222 · kube-apiserver</text>
+
+  <rect x="550" y="218" width="200" height="52" rx="8" fill="url(#cp-grad)" filter="url(#shadow)"/>
+  <text x="650" y="242" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">learn-k8s-cp2</text>
+  <text x="650" y="258" text-anchor="middle" font-size="10" fill="#e5dbff">10.10.1.223 · kube-apiserver</text>
+
+  <!-- Arrows: CP → Workers -->
+  <line x1="150" y1="270" x2="150" y2="325" stroke="#adb5bd" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="400" y1="270" x2="400" y2="325" stroke="#adb5bd" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="650" y1="270" x2="650" y2="325" stroke="#adb5bd" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Section: Workers -->
+  <text x="400" y="343" text-anchor="middle" font-size="11" font-weight="bold" fill="#495057">WORKER NODES</text>
+
+  <rect x="50" y="355" width="200" height="52" rx="8" fill="url(#wrk-grad)" filter="url(#shadow)"/>
+  <text x="150" y="379" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">learn-k8s-w1</text>
+  <text x="150" y="395" text-anchor="middle" font-size="10" fill="#c3fae8">10.10.1.219</text>
+
+  <rect x="300" y="355" width="200" height="52" rx="8" fill="url(#wrk-grad)" filter="url(#shadow)"/>
+  <text x="400" y="379" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">learn-k8s-w2</text>
+  <text x="400" y="395" text-anchor="middle" font-size="10" fill="#c3fae8">10.10.1.220</text>
+
+  <rect x="550" y="355" width="200" height="52" rx="8" fill="url(#wrk-grad)" filter="url(#shadow)"/>
+  <text x="650" y="379" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">learn-k8s-w3</text>
+  <text x="650" y="395" text-anchor="middle" font-size="10" fill="#c3fae8">10.10.1.221</text>
+
+  <!-- Cilium Pod Network Section -->
+  <line x1="50" y1="422" x2="750" y2="422" stroke="#dee2e6" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="400" y="444" text-anchor="middle" font-size="11" font-weight="bold" fill="#495057">CILIUM CNI</text>
+
+  <rect x="140" y="458" width="120" height="24" rx="12" fill="#5c7cfa" filter="url(#shadow)"/>
+  <text x="200" y="474" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">172.20.0.0/16 Pod CIDR</text>
+
+  <rect x="340" y="458" width="120" height="24" rx="12" fill="#5c7cfa" filter="url(#shadow)"/>
+  <text x="400" y="474" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">10.96.0.0/12 Service CIDR</text>
+
+  <rect x="540" y="458" width="120" height="24" rx="12" fill="#5c7cfa" filter="url(#shadow)"/>
+  <text x="600" y="474" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">/24 per node</text>
+
+  <!-- Legend -->
+  <rect x="30" y="490" width="10" height="10" rx="2" fill="#845ef7"/>
+  <text x="44" y="499" font-size="9" fill="#6c757d">Control Plane</text>
+  <rect x="140" y="490" width="10" height="10" rx="2" fill="#20c997"/>
+  <text x="154" y="499" font-size="9" fill="#6c757d">Worker</text>
+  <rect x="230" y="490" width="10" height="10" rx="2" fill="#4263f5"/>
+  <text x="244" y="499" font-size="9" fill="#6c757d">HAProxy</text>
+</svg>

@@ -1,0 +1,31 @@
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Terraform (if added later)
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Ansible (if added later)
+*.retry
+
+# Kubernetes secrets / certs (never commit these)
+*.key
+*.crt
+*.pem
+*.cert
+kubeconfig*
+admin.conf
+
+# Script temp files
+*.bak
+*.tmp
+
